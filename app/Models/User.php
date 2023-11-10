@@ -6,7 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -70,28 +70,5 @@ class User extends Authenticatable
     public function places()
     {
         return $this->hasMany(Place::class);
-    }
-
-    /**
-     * Get name to Uppercase
-     *
-     * @param  string  $value
-     * @return string
-     */
-    public function getNameAttribute($value)
-    {
-        return strtoupper($value);
-    }
-
-
-    /**
-     * Set the user's first name.
-     *
-     * @param  string  $value
-     * @return void
-     */
-    public function setNameAttribute($value)
-    {
-        $this->attributes['name'] = strtolower($value);
     }
 }
