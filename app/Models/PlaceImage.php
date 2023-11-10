@@ -17,4 +17,15 @@ class PlaceImage extends Model
     protected $fillable = [
         'place_id', 'image'
     ];
+
+    /**
+     * getImageAttribute
+     *
+     * @param  mixed $image
+     * @return void
+     */
+    public function getImageAttribute($image)
+    {
+        return asset('storage/places/' . $image);
+    }
 }

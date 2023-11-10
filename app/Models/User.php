@@ -71,4 +71,27 @@ class User extends Authenticatable
     {
         return $this->hasMany(Place::class);
     }
+
+    /**
+     * Get name to Uppercase
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getNameAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+
+    /**
+     * Set the user's first name.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtolower($value);
+    }
 }
