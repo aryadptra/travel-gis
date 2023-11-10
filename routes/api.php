@@ -52,6 +52,8 @@ Route::prefix('web')->group(function () {
     Route::get('/places/{slug?}', [App\Http\Controllers\Api\Web\PlaceController::class, 'show', ['as' => 'web']]);
     //route all places index
     Route::get('/all_places', [App\Http\Controllers\Api\Web\PlaceController::class, 'all_places', ['as' => 'web']]);
+    //route sliders
+    Route::get('/sliders', [App\Http\Controllers\Api\Web\SliderController::class, 'index', ['as' => 'web']]);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
