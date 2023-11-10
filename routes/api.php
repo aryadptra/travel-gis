@@ -40,6 +40,14 @@ Route::prefix('admin')->group(function () {
     });
 });
 
+//group route with prefix "web"
+Route::prefix('web')->group(function () {
+    //route categories index
+    Route::get('/categories', [App\Http\Controllers\Api\Web\CategoryController::class, 'index', ['as' => 'web']]);
+    //route categories show
+    Route::get('/categories/{slug?}', [App\Http\Controllers\Api\Web\CategoryController::class, 'show', ['as' => 'web']]);
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
