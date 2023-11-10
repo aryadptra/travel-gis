@@ -25,6 +25,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', App\Http\Controllers\Api\Admin\DashboardController::class, ['as' => 'admin']);
         // category resource
         Route::apiResource('/categories', App\Http\Controllers\Api\Admin\CategoryController::class, ['except' => ['create', 'edit'], 'as' => 'admin']);
+        //places resource
+        Route::apiResource('/places', App\Http\Controllers\Api\Admin\PlaceController::class, ['except' => ['create', 'edit'], 'as' => 'admin']);
         //route user logged in
         Route::get('/user', function (Request $request) {
             return $request->user();
