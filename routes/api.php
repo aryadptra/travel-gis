@@ -21,6 +21,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/login', App\Http\Controllers\Api\Admin\LoginController::class, ['as' => 'admin']);
     //group route with middleware "auth:api"
     Route::group(['middleware' => 'auth:api'], function () {
+        //dashboard
+        Route::get('/dashboard', App\Http\Controllers\Api\Admin\DashboardController::class, ['as' => 'admin']);
         //route user logged in
         Route::get('/user', function (Request $request) {
             return $request->user();
