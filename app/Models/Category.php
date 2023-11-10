@@ -17,4 +17,14 @@ class Category extends Model
     protected $fillable = [
         'name', 'slug', 'image'
     ];
+
+    /**
+     * places
+     *
+     * @return void
+     */
+    public function places()
+    {
+        return $this->hasMany(Place::class);
+    }
 }
